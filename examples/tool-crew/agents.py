@@ -1,6 +1,7 @@
 from crewai import Agent
 from langchain_community.llms import Ollama
 
+import os
 from dotenv import load_dotenv
 load_dotenv() 
 
@@ -17,9 +18,12 @@ jokebook = JokeBookTool()
   
 class CustomAgents():
 	def __init__(self):
-		self.Ollama = Ollama(model="mixtral")
+		self.Ollama = Ollama(model=os.getenv("LLM_MODEL_NAME"),
+					   base_url=os.getenv("LLM_BASE_URL")
+)
 
 	def comedian(self):	
+		print(self.Ollama.base_url)
 		return Agent(
 			role='commedian',
 			goal='tell me a joke',

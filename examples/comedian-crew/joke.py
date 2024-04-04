@@ -1,8 +1,13 @@
 from crewai import Agent, Task, Crew, Process
 import os
+from dotenv import load_dotenv
+load_dotenv() 
+
 
 from langchain_community.llms import Ollama
-ollama = Ollama(model="mixtral")
+ollama = Ollama(model=os.getenv("LLM_MODEL_NAME"),
+                base_url=os.getenv("LLM_BASE_URL")
+)
 
 comic = Agent(
     role='comedian',
