@@ -22,7 +22,7 @@
 **/*.jfm
 **/bin
 **/charts
-**/creawai
+**/crewai
 **/docker-compose*
 **/compose*
 **/Dockerfile*

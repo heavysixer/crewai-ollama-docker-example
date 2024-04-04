@@ -7,18 +7,22 @@ To use this repository do the following.
 To reference the host machine's LLM we use some Docker DNS magic in the config. `http://host.docker.internal:11434` 
 This was developed and tested on a mac. If your installation does not work this would be the _first_ place i'd check.
 
-
 ## Installation Steps:
 
 * Install Ollama locally: (https://ollama.ai/)
 * Install the LLMs of your choice (e.g., Llama2, mixtral, gemma)
-* Build the docker container for the example you want to test out: . -t crewai_examples --build-arg example_file='./examples/comedian-crew/joke.py'
-* Run the docker container: docker run -i -t crewai_examples
+* Rename the `.env-docker.sample` to `.env-docker`
+* Set your LLM variables inside `.env-docker`
+* Build the docker container for the example you want to test out: `docker build . -t crewai`
+* Run the docker container: `docker compose up`
 
 
 ## Why run this inside a Docker container?
 **Q:** It's it more complicated to develop inside the Docker container?
-**A** Yes, but it would be pretty frustrating for an agent to get confused an run `rm -rf /` on your computer. Do not trust agents to know what they are doing especially when allowing them to execute arbitrary code! 
+**A:** Yes, but it would be pretty frustrating for an agent to get confused an run `rm -rf /` on your computer. Do not trust agents to know what they are doing especially when allowing them to execute arbitrary code! 
+
+## Introspecting within the container
+If you need to see the files on the container you can use this command: `docker run -i -t crewai /bin/bash`
 
 ## ConnectionErrors in terminal
 You may see a collection of errors in the terminal if you are behind a VPN that blocks the telemetry service for Crew.ai:
