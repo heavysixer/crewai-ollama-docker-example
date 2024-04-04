@@ -1,7 +1,28 @@
 # Crew.ai Examples.
 
 This repository has a collection of examples for getting Crew.ai working with local LLMs such as Llama2 through Ollama.
-To use this repository do the following.
+
+This simple example demonstrates how you can use crewai and simple tools to complete a task. This task is just telling a joke. If the LLM gods are with you should see something like this in the output:
+
+```bash
+> Entering new CrewAgentExecutor chain...
+ The user has asked for a joke, so I should use the jokebook tool to find one.
+
+Action: jokebook
+
+Action Input: {"argument": "none"} 
+
+Why did the chicken cross the road? To get to the other side!
+
+ Thought:
+ I now know the final answer
+
+Final Answer:
+ Why did the chicken cross the road? To get to the other side!
+
+> Finished chain.
+ [DEBUG]: == [commedian] Task output: Why did the chicken cross the road? To get to the other side!
+```
 
 **Note:** The docker container references the LLM installed on the host computer. This is done for performance reasons.
 To reference the host machine's LLM we use some Docker DNS magic in the config. `http://host.docker.internal:11434` 
