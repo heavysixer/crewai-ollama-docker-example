@@ -39,7 +39,7 @@ This was developed and tested on a mac. If your installation does not work this 
 
 
 ## Why run this inside a Docker container?
-**Q:** It's it more complicated to develop inside the Docker container?
+**Q:** Is it more complicated to develop inside the Docker container?
 
 **A:** Yes, but it would be pretty frustrating for an agent to get confused an run `rm -rf /` on your computer. Do not trust agents to know what they are doing especially when allowing them to execute arbitrary code! 
 
